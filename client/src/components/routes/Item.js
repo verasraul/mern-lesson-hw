@@ -8,20 +8,21 @@ function Item() {
     const [item, setItem] = useState([])
     const [deleted, setDeleted] = useState(false)
     const { id } = useParams();
-    let navigate = useNavigate;
+    let navigate = useNavigate()
+
+    const fetchData = async () => {
+        try {
+            const response = await axios(`http://localhost:3000/api/grocerylist/${id}`)
+            const result = response.data.item
+            setItem(result)
+        } catch (error){
+            console.log(error)
+        }
+    }
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios(`http://localhost:3000/api/grocerylist/${id}`)
-                const result = response.data.item
-                setItem(result)
-            } catch (error){
-                console.log(error)
-            }
-        }
         fetchData()
-    }, []);
+    }, [])
 
     useEffect(() => {
         if (!item) {
@@ -31,7 +32,7 @@ function Item() {
 
     const destroy = () => {
         axios({
-            url: `http://localhost:300/api/grocerylist/${id}`,
+            url: `http://localhost:3000/api/grocerylist/${id}`,
             method: 'DELETE'
         }).then(() => setDeleted(true)).catch(console.error)
     }
@@ -45,10 +46,10 @@ function Item() {
     return (
         <Layout>
             <h4> { item.name } </h4>
-            <p>Link: {item.price}</p>
-            <p>Link: {item.type}</p>
+            <p>Price: {item.price}</p>
+            <p>Type: {item.type}</p>
             
-            <button> onClick={() => destroy()} >Delete Item</button>
+            <button onClick={() => destroy()}> Delete Item </button>
 
             <NavLink to={`/grocerylist/${id}/edit`}>
                 <button>Edit</button>
