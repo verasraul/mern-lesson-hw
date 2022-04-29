@@ -43,11 +43,13 @@ function Item() {
         }
     }, [deleted, navigate])
 
+
     return (
         <Layout>
             <h4> { item.name } </h4>
             <p>Price: {item.price}</p>
             <p>Type: {item.type}</p>
+        
             
             <button onClick={() => destroy()}> Delete Item </button>
 

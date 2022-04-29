@@ -1,7 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
 .App {
     text-align: center;
     background-color: whitesmoke;
     color: black;
+    height: 100vh;
+    
   }
   
   .App-logo {
@@ -24,6 +33,7 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+    
   }
   
   .App-link {
@@ -38,3 +48,73 @@
       transform: rotate(360deg);
     }
   }
+
+  nav{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 60px;
+    margin-bottom: 3em;
+  }
+  ul{
+    display: grid;
+    list-style: none;
+    justify-content:center ;
+    grid-template-row: repeat(2,1fr);
+    grid-gap: 10px;
+    
+  }
+  li{
+    justify-content:center;
+    font-size: 20;
+    list-style: none;
+    
+  }
+
+.layout-div {
+  padding-top: 45px;
+}
+
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 2%;
+  height: 80px;
+  margin-top: 65px;
+  background-color: whitesmoke;
+  color: black;
+}
+
+.grocery-list {
+  padding-bottom: 30px;
+}
+
+.total-prices {
+  padding-top: 30px;
+}
+
+.submit-buttons {
+  padding-top: 15px;
+  margin-right: 17em;
+}
+
+button{
+  margin: 10px;
+  padding: 10px;
+}
+
+input {
+  margin-right: 15em;
+  max-width: 40%;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 1em;
+  justify-self: center;
+  margin-left: 35%;
+}

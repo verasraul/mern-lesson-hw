@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 const ItemForm = ({item, handleSubmit, handleChange, cancelPath}) => {
     return (
+        <div>
         <form onSubmit={(e) => handleSubmit(e)}>
-            <label>Title</label>
             <input
             placeholder="item to input"
             defaultValue={item.name}
@@ -21,12 +21,15 @@ const ItemForm = ({item, handleSubmit, handleChange, cancelPath}) => {
             name="type"
             onChange={(e) => handleChange(e)} />    
 
-
-            <button type="submit">Submit</button>
-            <Link to={cancelPath}>
-                <button>Cancel</button>
-            </Link>
+            
+            <div className='submit-buttons'>
+                <button type="submit">Submit</button>
+                <Link to={cancelPath}>
+                    <button>Cancel</button>
+                </Link>
+            </div>
         </form>
+        </div>
 
     )
 }

@@ -5,7 +5,9 @@ import Footer from './Footer';
 const Layout = (props) => {
     return (
         <div>
-            <h1>Items App</h1>
+            <div className='layout-div'>
+            <h1>Groceries App</h1>
+            </div>
             <Nav />
 
             {props.children}

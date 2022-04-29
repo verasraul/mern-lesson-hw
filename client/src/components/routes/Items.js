@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import Layout from '../shared/Layout';
 
 
 function Items() {
@@ -21,6 +22,9 @@ function Items() {
         fetchData()
     }, [])
 
+    const prices = items.map((price) => price.price)
+    const totalPrice = prices.reduce((prevValue, cerrValue) => Math.floor(prevValue + cerrValue), 0)
+
     const itemsData = items.map((item) => {
         return <li key={item._id}>
             <NavLink to={`/grocerylist/${item._id}`}>{item.name}</NavLink>
@@ -28,14 +32,23 @@ function Items() {
     })
 
     return (
+        <Layout>
+            
         <div>
+            <div className='grocery-list'>
+            <h4> Grocery List</h4>
+            </div>
 
-            <h4>Items</h4>
             <ul>
                 {itemsData}
             </ul>
 
+            <div className='total-prices'>
+            <p><b>Totol Amount</b>: ${totalPrice} </p>
+            </div>
         </div>
+
+        </Layout>
     )
 }
 

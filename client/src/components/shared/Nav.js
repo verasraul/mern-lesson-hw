@@ -4,7 +4,7 @@ const Nav = () => {
     return (
         <nav>
             <NavLink to='/'>Home</NavLink>
-            <NavLink to='/grocerylist'>grocerylist</NavLink>
+            <NavLink to='/grocerylist'>Grocery list</NavLink>
             <NavLink to='/create-grocerylist'>Create Item</NavLink>
         </nav>
     )

@@ -16,16 +16,18 @@ function ItemEdit() {
     // check if it is updated
     const [updated, setUpdated] = useState(false)
 
-    useEffect( () => {
-        const fetchData = async () => {
-            try {
-                const response = await axios(`http://localhost:3000/api/grocerylist/`)
-                console.log('edit', response)
-                setItem(response.data)
-            } catch (error) {
-                console.log(error)
-            }
+    const fetchData = async () => {
+        try {
+            const response = await axios(`http://localhost:3000/api/grocerylist/`)
+            console.log('edit', response)
+            setItem(response.data)
+        } catch (error) {
+            console.log(error)
         }
+    }
+
+    useEffect( () => {
+
         fetchData()
     }, [])
 

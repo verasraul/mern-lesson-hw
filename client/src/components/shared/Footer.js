@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-      <p>© Copyright {new Date().getFullYear()}. All Rights Reserved.</p>
+      <footer>© Copyright {new Date().getFullYear()}. All Rights Reserved.</footer>
     )
   }
   
